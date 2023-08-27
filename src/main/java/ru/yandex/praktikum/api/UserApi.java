@@ -14,7 +14,6 @@ public class UserApi {
     private final static String REGISTER_URL = "/api/auth/register";
     private final static String LOGIN_URL = "/api/auth/login";
     private final static String LOGOUT_URL = "/api/auth/logout";
-    //    private final static String UPDATE_TOKEN_URL = "/api/auth/token";
     private final static String USER_URL = "/api/auth/user";
 
 
@@ -43,7 +42,7 @@ public class UserApi {
                 .post(LOGOUT_URL);
     }
 
-    @Step("Send POST request to /api/auth/token")
+    @Step("Send POST request to /api/auth/user")
     public static Response updateUser(UserCreateAndUpdateRequest request, Map<String, Object> headers) {
         return given()
                 .header("Content-type", "application/json")
@@ -60,7 +59,7 @@ public class UserApi {
                 .get(USER_URL);
     }
 
-    @Step("Send GET request to /api/auth/user")
+    @Step("Send DELETE request to /api/auth/user")
     public static Response deleteUser(String token) {
         return given()
                 .header("Content-type", "application/json")
